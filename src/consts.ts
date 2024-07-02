@@ -26,33 +26,119 @@ export const socialLinks: {
     icon: string;
     linkTo: string;
 }[] = [
-        { link: 'Facebook', icon: '/src/assets/icons/icon-facebook.svg', linkTo: 'https://www.facebook.com' },
-        { link: 'Twitter', icon: '/src/assets/icons/icon-twitter.svg', linkTo: 'https://www.twitter.com' },
-
+        {
+            link: 'Facebook',
+            icon: '/src/assets/icons/icon-facebook.svg',
+            linkTo: 'https://www.facebook.com'
+        },
+        {
+            link: 'Twitter',
+            icon: '/src/assets/icons/icon-twitter.svg',
+            linkTo: 'https://www.twitter.com'
+        },
     ];
 
-export const featureList: {
+export const featureListBasic: {
     feature: string;
     tag: string;
     description: string;
     cta: string;
+    illustration: string;
 }[] = [
         {
             feature: 'Simple Bookmarking',
             tag: "Bookmark in one click",
-            description: "Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favorite sites.", cta: "More Info",
+            description: "Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favorite sites.",
+            cta: "More Info",
+            illustration: "/src/assets/images/illustration-features-tab-1.svg"
         },
+
+
         {
             feature: 'Speedy Searching',
             tag: "Intelligent search",
-            description: 'Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.', cta: "More Info",
+            description: 'Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.',
+            cta: "More Info",
+            illustration: "/src/assets/images/illustration-features-tab-2.svg"
+
         },
         {
             feature: 'Easy Sharing',
             tag: "Share your bookmarks",
-            description: 'Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of abutton.', cta: " More Info",
+            description: 'Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.',
+            cta: "More Info",
+            illustration: "/src/assets/images/illustration-features-tab-3.svg"
+        },
+
+
+        {
+            feature: 'Social Sharing',
+            tag: "Seamless Sharing",
+            description: 'Embed bookmarks on your social media pages or websites to expand your reach.',
+            cta: "More Info",
+            illustration: "/src/assets/images/illustration-features-tab-3.svg"
+        },
+        {
+            feature: 'Collaborative Collections',
+            tag: "Collaborate with Friends",
+            description: "Invite friends, colleagues, or communities to build shared bookmark collections. Work together to curate knowledge.", cta: "More Info",
+            illustration: "/src/assets/images/illustration-features-tab-3.svg"
+        },
+        {
+            feature: 'Browser Integration',
+            tag: "Enhanced Browsing Experience",
+            description: "Bookmark works seamlessly with your favorite browsers, making it simple to save and access your bookmarks. ",
+            cta: "More Info",
+            illustration: "/src/assets/images/illustration-features-tab-3.svg"
+        }, {
+            feature: 'Cross-Device Sync',
+            tag: "Enhanced Browsing Experience",
+            description: "Access your bookmarks from any device. Keep your knowledge synced acrossyour computer, phone, and tablet.",
+            cta: "More Info",
+            illustration: "/src/assets/images/illustration-features-tab-3.svg"
         },
     ];
+
+
+export const featureListPremium: {
+    feature: string;
+    tag: string;
+    description: string;
+    cta?: string;
+    illustration: string;
+}[] = [
+        {
+            feature: 'Advanced Customization',
+            tag: "Tailor your Bookmark Experience",
+            description: "Personalize your Bookmark experience with custom themes and layouts.",
+            illustration: "/src/assets/images/illustration-features-tab-1.svg"
+        },
+
+        {
+            feature: 'Priority Support',
+            tag: "Worldclass Support",
+            description: "Get faster responses to your questions and priority issue resolution.",
+            illustration: "/src/assets/images/illustration-features-tab-1.svg"
+        },
+        {
+            feature: 'Enhanced Collaboration',
+            tag: "Share and Collaborate",
+            description: "Unlock powerful collaborative tools for seamless teamwork.",
+            illustration: "/src/assets/images/illustration-features-tab-1.svg"
+        },
+        {
+            feature: 'Secure Storage',
+            tag: "Store your bookmarks",
+            description: "Your bookmarks are stored securely on our servers, protected byindustry-leading security measures.",
+            illustration: "/src/assets/images/illustration-features-tab-1.svg"
+        },
+        {
+            feature: 'Data Privacy',
+            tag: "You can trust us with your data",
+            description: "We never share your data with third parties without your consent. Your privacy is our priority.",
+            illustration: "/src/assets/images/illustration-features-tab-1.svg"
+        },
+    ]
 
 export const featureCTAList: {
     action: string;
@@ -68,10 +154,20 @@ export const featureCTAList: {
             browserIcon: 'src/assets/icons/logo-chrome.svg',
             browserVersion: '62'
         },
-
-        { action: 'Add to Firefox', call: "Add & Install Extension", browser: 'Add & Install Extension', browserIcon: 'src/assets/icons/logo-firefox.svg', browserVersion: '55' },
-
-        { action: 'Add to Opera', call: "Add & Install Extension", browser: 'Add & Install Extension', browserIcon: 'src/assets/icons/logo-opera.svg', browserVersion: '46' },
+        {
+            action: 'Add to Firefox',
+            call: "Add & Install Extension",
+            browser: 'Add & Install Extension',
+            browserIcon: 'src/assets/icons/logo-firefox.svg',
+            browserVersion: '55'
+        },
+        {
+            action: 'Add to Opera',
+            call: "Add & Install Extension",
+            browser: 'Add & Install Extension',
+            browserIcon: 'src/assets/icons/logo-opera.svg',
+            browserVersion: '46'
+        },
     ]
 
 
@@ -95,5 +191,28 @@ export const questionsList: {
             question: 'What about other Chromium browsers?',
             answer: "While Bookmark was initially designed for specific browsers, we are actively working to expand its compatibility to include other Chromium-based browsers. Our goal is to make Bookmark accessible to users across various platforms and browser preferences."
         },
-
+        {
+            question: 'Can I share my bookmarks with others?',
+            answer: "Yes! Bookmark allows you to create shareable links or embed your bookmarks on social media or websites. You can also collaborate with others by creating shared bookmark collections."
+        },
+        {
+            question: 'Is my data secure?',
+            answer: "We take data security seriously. Your bookmarks are stored securely on our servers, and we implement robust measures to protect your information. We never share your data with third parties without your consent."
+        },
+        {
+            question: 'Can I import bookmarks from other tools?',
+            answer: "Yes, we offer options to import bookmarks from popular browsers and bookmark managers. This makes it easy to transition to Bookmark while retaining your existing bookmarks."
+        },
+        {
+            question: 'How do I organize my bookmarks?',
+            answer: "Bookmark provides several organization features, including folders, tags, and a powerful search function. You can categorize bookmarks, add labels, and quickly find what you need."
+        },
+        {
+            question: 'Are there any premium features?',
+            answer: "We offer both free and premium versions of Bookmark. The free version provides robust bookmarking capabilities, while the premium version includes additional features like advanced customization, collaborative tools, and priority support."
+        },
+        {
+            question: 'How can I provide feedback or report issues?',
+            answer: "We welcome your feedback! You can contact us through our website's contact form or social media channels to report any issues you encounter or share suggestions for improvement."
+        }
     ];

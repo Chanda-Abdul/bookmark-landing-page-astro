@@ -23,6 +23,15 @@ nav {
 	@include flex(column, space-between, center);
 }
 
+p {
+	color: var(--royal-curtsy);
+	font-size: var(--font-size-content);
+	font-weight: var(--font-weight-default);
+	// text-align: center;
+	line-height: var(--line-height-default);
+	opacity: var(--text-opacity-p);
+}
+
 h1 {
 	color: var(--royal-curtsy);
 	font-size: var(--font-size-h1);
@@ -46,18 +55,20 @@ h3 {
 	margin-bottom: var(--spacing-s);
 }
 
-h4 {}
-
-h5 {}
-
-p {
-	color: var(--royal-curtsy);
-	font-size: var(--font-size-content);
-	font-weight: var(--font-weight-default);
-	text-align: center;
-	line-height: var(--line-height-default);
-	opacity: var(--text-opacity-p);
+h4 {
+	@extend p;
+	color: var(--nightshade);
+	font-size: var(--font-size-default);
+	opacity: .75;
 }
+
+h5 {
+	@extend h4;
+	font-size: var(--font-size-content);
+	font-weight: var(--font-weight-display)
+}
+
+
 
 
 header {
@@ -157,25 +168,22 @@ a {
 
 .features form fieldset {
 	@include flex(column, space-between, center);
-	
+
 }
 
-fieldset{
+fieldset {
 	border: none;
-          width: 100%;
+	width: 100%;
 }
 
 .pill-background {
-	border-radius: 31.65rem;
+	position: absolute;
+	z-index: -1;
 	width: 57.7rem;
 	height: 20.3rem;
-	z-index: 1;
-	flex-shrink: 0;
-	position: absolute;
 	border-radius: 31.65rem;
 	background: var(--flickering-sea);
 }
-
 
 footer {
 	font-size: var(--font-size-attribution);

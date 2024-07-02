@@ -60,7 +60,8 @@ if (Astro.request.method === 'POST') {
       class='signup__input'
       required
     />
-    <span class='error'>Whoops, make sure it's an email</span>
+    {errors.email && <span class='error'>Whoops, make sure it's an email</span>}
+   
   </label>
 
   <button class='btn-form'>Contact Us</button>

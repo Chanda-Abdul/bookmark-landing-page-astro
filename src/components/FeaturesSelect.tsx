@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { featureList } from '../consts';
+import { featureListBasic } from '../consts';
+import Feature from './Feature.astro';
 
 export default function FeaturesPreview() {
   const [currentFeatureIdx, setCurrentFeatureIdx] = useState(0);
   const [currentfeature, setCurrentfeature] = useState(
-    featureList[currentFeatureIdx]
+    featureListBasic[currentFeatureIdx]
   );
 
   const handleChange = (idx: number) => {
@@ -12,15 +13,14 @@ export default function FeaturesPreview() {
   };
 
   useEffect(() => {
-    setCurrentfeature(featureList[currentFeatureIdx]);
+    setCurrentfeature(featureListBasic[currentFeatureIdx]);
   }, [currentFeatureIdx]);
 
   return (
     <>
-      <form className='features__content' 
-      id='feature' action=''>
+      <form className='features__content' id='feature' action=''>
         <fieldset className='features__preview'>
-          {featureList.map((feature, i) => (
+          {featureListBasic.map((feature, i) => (
             <>
               <input
                 className='features__preview--item'
@@ -37,19 +37,20 @@ export default function FeaturesPreview() {
         </fieldset>
       </form>
 
-      <div className='features__img'>
-        <img
-          src='src/assets/images/illustration-hero.svg'
-          alt='desktop illustration'
-        />
+      <div className='feature'>
+        <div className='feature__img'>
+          <img src={currentfeature.illustration} alt={currentfeature.feature} />
 
-        <span className='pill-background'></span>
-      </div>
+          <span className='pill-background'></span>
+        </div>
 
-      <div className='features__current'>
-        <h2>{currentfeature.tag}</h2>
-        <p>{currentfeature.description}</p>
-        <button className='btn-primary'>{currentfeature.cta}</button>
+        <h3 className='feature__title'>{currentfeature.feature}</h3>
+
+        <h4 className='feature__tag'>{currentfeature.tag}</h4>
+        <p className='feature__description'>{currentfeature.description}</p>
+        {currentfeature.cta && (
+          <button className='btn-primary'>{currentfeature.cta}</button>
+        )}
       </div>
     </>
   );

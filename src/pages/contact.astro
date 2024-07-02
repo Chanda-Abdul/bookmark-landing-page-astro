@@ -1,10 +1,65 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import BaseHead from '../layouts/BaseHead.astro';
 import Signup from '../components/Signup.astro';
 ---
 
 <Layout title='Contact'>
-  <h1>Contact</h1>
-  <Signup />
-</Layout>
+  <section>
+    <h1>Contact Us</h1>
+
+    <h4>We'd love to hear from you!</h4>
+
+    <p>
+      Whether you have a question, feedback, or just want to say hello, we're
+      here to help.
+    </p>
+    <button class='btn-primary'>Get in Touch</button>
+
+    You can reach us in a few ways:
+    <ul>
+      <li>
+        <h4>Email</h4>
+        <p>
+          Send us an email at [email protected] and we'll get back to you as
+          soon as possible.
+        </p>
+      </li>
+      <li>
+        <h4>Contact Form</h4>
+        <p>Fill out our contact form below and we'll be in touch shortly.</p>
+      </li>
+      <li>
+        <h4>Social Media</h4>
+        <p>
+          Connect with us on [list your social media handles] for updates, tips,
+          and community discussions.
+        </p>
+      </li>
+    </ul>
+    <!-- to-do => create form in react island -->
+    <form action=''>
+      <legend>Contact Form</legend>
+      <fieldset>
+      <label for='name'>Name</label><input type='text' name='name' />
+      
+       <label for='email'>Email</label><input type='text' name='email' />
+     
+       <label for='subject'>Subject</label><input type='text' name='subject' />
+     
+      <label for="message">Message</label><textarea name='message'/>
+         
+      </fieldset>
+     </form> 
+        
+        <p>We value your feedback and
+        are committed to providing excellent customer support.We look forward
+        to hearing from you! </p> 
+        
+        <h3>Meet the Bookmark Team</h3> 
+        <!-- [Optional: Add a map showing your
+        company's location or a photo of your team to make the page more
+        personal.] -->
+      </section> <Signup /> </Layout>
+     
+  </section></Layout
+>

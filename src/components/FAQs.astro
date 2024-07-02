@@ -16,7 +16,7 @@ let openIdx = 0;
           <span
             class:list={['accordion__header', i == openIdx ? 'show' : 'hide']}
           >
-            <h4>{question.question}</h4>
+            <h5 class="accordion__item--title">{question.question}</h5>
             <button
               class='accordion__btn'
               type='button'
@@ -53,6 +53,7 @@ let openIdx = 0;
       position: relative;
       &__item {
         position: relative;
+        &--title{ max-width: 90%;}
         &:not(:first-of-type)::before,
         &:last-of-type::after {
           content: '';

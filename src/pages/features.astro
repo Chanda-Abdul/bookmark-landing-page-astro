@@ -1,11 +1,48 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Features from '../components/Features.astro';
 import Signup from '../components/Signup.astro';
+import { featureListBasic, featureListPremium } from '../consts';
+import Feature from '../components/Feature.astro';
 ---
 
 <Layout title='Features'>
-  <h1>Features</h1>
-  <Features />
+  <section class='features'>
+    <h1>Features</h1>
+    <div class='features__content'>
+      <h3>Features to Elevate Your Bookmarking Experience</h3>
+
+      <ul>
+        {
+          featureListBasic.map((feature, i) => (
+            <li>
+              <Feature {feature} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <h3>Premium Features (Upgrade to Unlock)</h3>
+    <ul>
+      {
+        featureListPremium.map((feature) => (
+          <li>
+            <Feature {feature} />
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class='features__cta'>
+      <h3>Join the Bookmark Community</h3>
+      <p>
+        Bookmark isn't just a tool – it's a community of knowledge-sharers and
+        lifelong learners.
+      </p>
+      <p>
+        Join us today and discover a new way to organize, share, and grow your
+        knowledge.
+      </p>
+    </div>
+  </section>
   <Signup />
 </Layout>

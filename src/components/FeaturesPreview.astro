@@ -1,6 +1,6 @@
 ---
 import { featureCTAList } from '../consts';
-import FeaturesPreview from './FeaturesPreview.tsx';
+import FeaturesSelect from './FeaturesSelect';
 ---
 
 <section class='features'>
@@ -13,7 +13,7 @@ import FeaturesPreview from './FeaturesPreview.tsx';
     </p>
   </div>
 
-  <FeaturesPreview client:load />
+  <FeaturesSelect client:load />
 
   <div class='features__cta'>
     <h2>Download the extension</h2>
@@ -28,6 +28,7 @@ import FeaturesPreview from './FeaturesPreview.tsx';
           <li>
             <article>
               <img src={cta.browserIcon} alt={cta.action} />
+
               <h2>{cta.action}</h2>
               <p>Minimum version {cta.browserVersion}</p>
               <img src='src/assets/icons/bg-dots.svg' alt='divider dots' />
@@ -41,6 +42,7 @@ import FeaturesPreview from './FeaturesPreview.tsx';
   </div>
 
   <style lang='scss' is:global>
+
     .features {
       margin-bottom: 6rem;
 
@@ -84,37 +86,6 @@ import FeaturesPreview from './FeaturesPreview.tsx';
         }
       }
 
-      &__img {
-        position: relative;
-        padding-bottom: 5rem;
-
-        img {
-          position: relative;
-          z-index: 2;
-          width: 100%;
-        }
-
-        span {
-          top: 5rem;
-          right: 3.7rem;
-        }
-      }
-
-      &__current {
-        margin: var(--spacing-mobile-vertical) auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        text-align: center;
-
-        &--item {
-          .btn-primary {
-            padding: 1rem var(--spacing-m);
-          }
-        }
-      }
-
       &__cta {
         margin: var(--spacing-mobile-vertical) 0;
 
@@ -148,7 +119,6 @@ import FeaturesPreview from './FeaturesPreview.tsx';
         }
       }
 
-      
       /* tablet media query */
       @media screen and (min-width: 37.5em) {
         // .features {
