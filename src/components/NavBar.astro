@@ -1,0 +1,192 @@
+---
+import { Image } from 'astro:assets';
+import { navLinks, socialLinks } from '../consts';
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  OpenIcon,
+  CloseIcon,
+} from 'astro-navbar';
+---
+
+<header>
+  <Astronav closeOnClick>
+    <MenuIcon>
+      <OpenIcon
+        ><a href='/' aria-label='go home' class='nav__logo'>
+          <img src='src/assets/logo-bookmark.svg' alt=' brand logo' />
+        </a>
+      </OpenIcon>
+
+      <CloseIcon
+        ><a href='/' aria-label='go home' class='nav__logo'>
+          <img src='src/assets/logo-bookmark-secondary.svg' alt=' brand logo' />
+        </a></CloseIcon
+      >
+
+      <OpenIcon>
+        <img src='src/assets/icons/icon-hamburger.svg' alt='menu open icon' />
+      </OpenIcon>
+      <CloseIcon>
+        <img src='src/assets/icons/icon-close.svg' alt='menu close icon' />
+      </CloseIcon>
+    </MenuIcon>
+
+    <MenuItems class='hidden nav__menu'>
+      <ul>
+        {
+          navLinks.map((link) => (
+            <li class='nav__menu--link'>
+              {/* To-do =>  fix routing for /page/blog-tile/page */}
+              <a href={link.linkTo}>{link.link}</a>
+            </li>
+          ))
+        }
+        <li><button class='btn-nav'>Login</button></li>
+      </ul>
+      <ul class='nav__social-links'>
+        {
+          socialLinks.map((link) => (
+            <li>
+              <a href={link.linkTo}>
+                <Image
+                  src={link.icon}
+                  width={24}
+                  height={24}
+                  format='svg'
+                  alt={link.link}
+                  loading='lazy'
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </MenuItems>
+  </Astronav>
+</header>
+
+<style lang='scss'>
+  header {
+    padding: var(--spacing-mobile-vertical-nav)
+      var(--spacing-mobile-horizontal-nav);
+    background: transparent;
+  }
+
+  nav {
+    font-size: var(--font-size-nav);
+    font-weight: var(--font-weight-default);
+    line-height: var(--line-height-nav);
+    letter-spacing: var(--letter-spacing-nav);
+    text-transform: var(--text-case-display);
+  }
+
+  @media screen and (max-width: 48em) {
+    header {
+      z-index: 7;
+      position: relative;
+      width: 100%;
+    }
+    a,
+    .btn-nav {
+      color: var(--beluga);
+    }
+
+    .nav__menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: var(--royal-curtsy);
+      opacity: 0.95;
+      backdrop-filter: blur(1.6rem);
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      ul {
+        &:first-of-type {
+          padding: var(--spacing-mobile-vertical-nav-top)
+            var(--spacing-mobile-horizontal) 0;
+        }
+        &:last-of-type {
+          display: flex;
+          flex-direction: row;
+          align-content: center;
+          justify-content: center;
+          gap: var(--spacing-mobile-vertical);
+          padding: 0 var(--spacing-mobile-horizontal)
+            var(--spacing-mobile-vertical);
+        }
+        width: 100%;
+      }
+      &--link {
+        position: relative;
+        padding: var(--spacing-m) 0;
+
+        a::before,
+        a:last-of-type::after {
+          content: '';
+          position: absolute;
+          height: 1px;
+          width: 100%;
+          left: 0;
+          opacity: 0.15;
+          background: var(--beluga);
+        }
+        a::before {
+          top: 0;
+        }
+        a:last-of-type::after {
+          bottom: 0;
+        }
+      }
+      &:not(.hidden) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  @media screen and (min-width: 48em) {
+    .nav__menu {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 3.7rem;
+        margin: 0 3.7rem;
+        li a {
+          margin-bottom: 0;
+          font-size: var(--font-size-link);
+          font-weight: var(--font-weight-display);
+          line-height: var(--line-height-default);
+          letter-spacing: var(--letter-spacing-md);
+        }
+      }
+    }
+
+    button {
+      margin: auto 0 auto;
+      width: fit-content;
+      padding: 1.2rem var(--spacing-sm-horizontal);
+    }
+  }
+
+  nav a:active,
+  nav a:hover {
+    color: var(--blue-jay);
+    border-bottom-color: var(--blue-jay);
+  }
+
+  @media screen and (min-width: 52.25em) {
+    .nav__menu ul {
+      margin: 0 3.7rem 0 auto;
+    }
+  }
+</style>

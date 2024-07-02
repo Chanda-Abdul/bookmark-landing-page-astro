@@ -1,0 +1,60 @@
+@font-face {
+	font-family: 'Rubik';
+	src: url('/assets/fonts/Rubik/Rubik-VariableFont_wght.ttf') format('truetype');
+	font-weight: 400 500 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--font-family-default: "Rubik", sans-serif;
+
+	--font-weight-default: 400;
+	--font-weight-display: 600;
+
+	--font-size-default: 1.8rem;
+	--font-size-content: 1.5rem;
+	--font-size-nav: 2rem;
+	--font-size-attribution: 1.1rem;
+	// --font-size-link: 1.6rem;
+	--font-size-btn: 1.4rem;
+	--font-size-h1: 3rem;
+	// --font-size-h1-desktop: 4.8rem;
+	--font-size-h2: 2.4rem;
+	--font-size-attribution: 1rem;
+
+	--text-case-display: uppercase;
+
+	--line-height-default: 2.5rem;
+	--line-height-nav: 1.7rem;
+	--line-height-h1: 4rem;
+	--line-height-h2: 5.2rem;
+	--line-height-h3: 3rem;
+	--line-height-btn: 2.8rem;
+
+	// --letter-spacing-default: -0.333px;
+	--letter-spacing-h1: -0.094px;
+	--letter-spacing-h2: -0.075px;
+	--letter-spacing-btn: 0.25px;
+	--letter-spacing-form: 0.533px;
+	--letter-spacing-nav:  2.308px;
+	// --letter-spacing-h1-desktop: -2px;
+	// --letter-spacing-h2: 5.833px;
+	// --letter-spacing-btn: 1.25rem;
+
+	--text-opacity-p: 0.5;
+
+	--spacing-mobile-vertical-nav-top: 10.5rem;
+	// --spacing-mobile-horizontal-nav: 3.2rem;
+	--spacing-mobile-vertical: 4rem;
+	--spacing-mobile-horizontal: 3.2rem;
+	// --spacing-desktop-vertical: 10.2rem;
+	// --spacing-desktop-horizontal: 10rem;
+	// --spacing-xs: 1.5rem;
+	--spacing-s: 1.6rem;
+	--spacing-m: 2.4rem;
+	// --spacing-l: 4rem;
+}
+
+
+

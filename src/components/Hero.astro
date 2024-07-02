@@ -1,0 +1,59 @@
+---
+
+---
+
+<section class='hero'>
+  <div class='hero__img'>
+    <img
+      src='src/assets/images/illustration-hero.svg'
+      alt='desktop illustration'
+    />
+    <span class='pill-background'></span>
+  </div>
+
+  <div class='hero__content'>
+    <h1>A Simple Bookmark Manager</h1>
+    <p>
+      A clean and simple interface to organize your favourite websites. Open a
+      new browser tab and see your sites load instantly. Try it for free.
+    </p>
+    <div class='hero__actions'>
+      <a href='#' class='btn-primary'>Get it on Chrome</a>
+      <a href='#' class='btn-secondary'>Get it on Firefox</a>
+    </div>
+  </div>
+</section>
+
+<style lang='scss'>
+  .hero {
+    width: 100%;
+    overflow: hidden;
+
+    &__img {
+      position: relative;
+      padding-bottom: 5rem;
+
+      img {
+        position: relative;
+        z-index: 2;
+      }
+
+      span {
+        top: 5rem;
+        left: 3.7rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 48em) {
+    /* media query - mobile  */
+  }
+
+  @media screen and (min-width: 48em) {
+    /* tablet media query */
+  }
+
+  /* desktop media query */
+  @media screen and (min-width: 75em) {
+  }
+</style>

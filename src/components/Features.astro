@@ -1,0 +1,173 @@
+---
+import { featureCTAList } from '../consts';
+import FeaturesPreview from './FeaturesPreview.tsx';
+---
+
+<section class='features'>
+  <div class='features__content'>
+    <h2>Features</h2>
+    <p>
+      Our aim is to make it quick and easy for you to access your favourite
+      websites. Your bookmarks sync between your devices so you can access them
+      on the go.
+    </p>
+  </div>
+
+  <FeaturesPreview client:load />
+
+  <div class='features__cta'>
+    <h2>Download the extension</h2>
+    <p>
+      We've got more browsers in the pipeline. Please do let us know if you've
+      got a favorite you'd like us to prioritize.
+    </p>
+
+    <ul class='features__cta--list'>
+      {
+        featureCTAList.map((cta) => (
+          <li>
+            <article>
+              <img src={cta.browserIcon} alt={cta.action} />
+              <h2>{cta.action}</h2>
+              <p>Minimum version {cta.browserVersion}</p>
+              <img src='src/assets/icons/bg-dots.svg' alt='divider dots' />
+
+              <button class='btn-primary'>{cta.call}</button>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <style lang='scss' is:global>
+    .features {
+      margin-bottom: 6rem;
+
+      form {
+        margin: var(--spacing-mobile-vertical) auto;
+
+        fieldset {
+          label {
+            position: relative;
+            width: 100%;
+            border-top: 1px solid var(--vintage-ribbon);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--royal-curtsy);
+            font-size: var(--font-size-content);
+            font-weight: var(--font-weight-default);
+            line-height: var(--line-height-nav);
+            letter-spacing: var(--letter-spacing-form);
+
+            &:last-of-type {
+              border-bottom: 1px solid var(--vintage-ribbon);
+            }
+          }
+
+          input[type='radio'] {
+            -webkit-appearance: none;
+            margin: 0;
+            padding: 0;
+
+            &:checked + label::after {
+              position: absolute;
+              content: '';
+              bottom: 0;
+              left: calc(50% - 7.015rem);
+              opacity: 1;
+              width: 14.3rem;
+              height: 4px;
+              background: var(--watermelon-sugar);
+            }
+          }
+        }
+      }
+
+      &__img {
+        position: relative;
+        padding-bottom: 5rem;
+
+        img {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+        }
+
+        span {
+          top: 5rem;
+          right: 3.7rem;
+        }
+      }
+
+      &__current {
+        margin: var(--spacing-mobile-vertical) auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+
+        &--item {
+          .btn-primary {
+            padding: 1rem var(--spacing-m);
+          }
+        }
+      }
+
+      &__cta {
+        margin: var(--spacing-mobile-vertical) 0;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          margin: var(--spacing-mobile-vertical) var(--spacing-s);
+          gap: var(--spacing-mobile-vertical);
+        }
+
+        article {
+          text-align: center;
+          justify-content: center;
+          align-content: center;
+
+          img:first-of-type {
+            margin-bottom: 3.2rem;
+          }
+          h2 {
+            margin-bottom: 0.6rem;
+            line-height: normal;
+          }
+          p {
+            margin-bottom: 3.2rem;
+          }
+        }
+
+        img {
+        }
+        button {
+        }
+      }
+
+      
+      /* tablet media query */
+      @media screen and (min-width: 37.5em) {
+        // .features {
+        margin: 1.2rem auto;
+      }
+      // }
+    }
+
+    /* desktop media query */
+    @media screen and (min-width: 51.25em) {
+      .features__list {
+        padding: 12rem 16.5rem;
+        display: flex;
+        flex-direction: row;
+
+        p {
+          padding: 0;
+        }
+      }
+    }
+  </style>
+</section>

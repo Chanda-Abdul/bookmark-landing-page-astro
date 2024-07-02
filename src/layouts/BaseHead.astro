@@ -1,0 +1,47 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import '../styles/global.scss';
+
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const { title, description } = Astro.props;
+---
+
+<head>
+  
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/src/assets/favicon-32x32.png" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Font preloads -->
+<link rel="preload" href="src/assets/fonts/Rubik/Rubik-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin />
+
+<!-- Canonical URL -->
+<!-- <link rel="canonical" href={canonicalURL} /> -->
+
+<!-- Primary Meta Tags -->
+<title>Frontend Mentor | Bookmark landing page</title>
+<meta name="title" content={SITE_TITLE} />
+<meta name="description" content={SITE_DESCRIPTION} /> 
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={SITE_TITLE} />
+<meta property="twitter:description" content={SITE_DESCRIPTION} />
+
+</head>

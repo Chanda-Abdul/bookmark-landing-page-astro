@@ -1,0 +1,113 @@
+---
+import Image from 'astro/components/Image.astro';
+import { footerLinks, socialLinks } from '../consts';
+
+const today = new Date();
+---
+
+<footer class='footer'>
+  <a href='/' class='footer__logo'
+    ><img src='/src/assets/logo-bookmark-on-dark.svg' alt='brand logo' /></a
+  >
+
+  <menu class='footer__links'>
+    {
+      footerLinks.map((link) => (
+        <li class='footer__menu--link'>
+          <a href={link.linkTo}>{link.link}</a>
+        </li>
+      ))
+    }
+  </menu>
+
+  <ul class='footer__social-links'>
+    {
+      socialLinks.map((link) => (
+        <li class='footer__social-links--link'>
+          <a href={link.linkTo}>
+            <Image
+              src={link.icon}
+              width={24}
+              height={24}
+              format='svg'
+              alt={link.link}
+              loading='lazy'
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <p class='footer__attribution'>
+    Challenge by <a
+      href='https://www.frontendmentor.io?ref=challenge'
+      target='_blank'>Frontend Mentor</a
+    >. Copyright &copy; {today.getFullYear()}. Coded by <a
+      href='www.ChandaAbdul.dev'>Chanda Abdul</a
+    >.
+  </p>
+</footer>
+
+<style lang='scss'>
+  .footer {
+    bottom: 0;
+    padding: var(--spacing-mobile-vertical) var(--spacing-mobile-horizontal);
+    background: var(--royal-curtsy);
+    color: var(--beluga);
+
+    &__logo {
+      width: 14.8rem;
+      height: 2.4rem;
+      flex-shrink: 0;
+    }
+
+    &__links {
+      padding: var(--spacing-s) 0;
+      a {
+        margin: var(--spacing-s) 0;
+      }
+    }
+  }
+
+  /* tablet media query */
+  // @media screen and (min-width: 37.5em) {
+  //   .footer {
+  //     display: grid;
+  //     grid-template-columns: repeat(2, auto);
+  //     grid-template-rows: repeat(3, auto);
+  //     grid-column-gap: 0px;
+  //     grid-row-gap: 0px;
+  //     padding: 6.4rem var(--spacing-mobile-vertical);
+  //     button {
+  //       justify-self: flex-end;
+  //       align-self: flex-start;
+  //       grid-column: 2;
+  //       grid-row: 1;
+  //       margin-top: 0;
+  //     }
+  //   }
+
+  //   .footer__logo {
+  //     grid-column: 1;
+  //     grid-row: 1;
+  //   }
+  //   .footer__links {
+  //     grid-column: 1;
+  //     grid-row: 2;
+  //     display: flex;
+  //     gap: 2.6rem;
+  //     margin-bottom: var(--spacing-lg);
+  //   }
+  //   .footer__attribution {
+  //     grid-column: 2;
+  //     grid-row: 3;
+  //     margin-top: 0;
+  //   }
+  //   .footer__social-links {
+  //     grid-column: 1;
+  //     grid-row: 3;
+  //     margin-bottom: 0;
+  //     justify-content: flex-start;
+  //   }
+  // }
+</style>

@@ -1,0 +1,182 @@
+---
+import { questionsList } from '../consts';
+let openIdx = 0;
+---
+
+<section class='faqs'>
+  <h3>Frequently Asked Questions</h3>
+  <p>
+    Here are some of our FAQs. If you have any other questions you'd like
+    answered please feel free to email us.
+  </p>
+  <ul class='faqs__list accordion'>
+    {
+      questionsList.map((question, i) => (
+        <li class='accordion__item'>
+          <span
+            class:list={['accordion__header', i == openIdx ? 'show' : 'hide']}
+          >
+            <h4>{question.question}</h4>
+            <button
+              class='accordion__btn'
+              type='button'
+              id={`${i} accordion menu btn`}
+              aria-expanded={i == openIdx ? 'true' : 'false'}
+            >
+              {' '}
+            </button>
+          </span>{' '}
+          <p
+            class='accordion__content'
+            id={`${i} accordion menu content`}
+            aria-labelledby={`${i} accordion menu btn`}
+          >
+            {question.answer}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+  <button class='btn-primary'>More Info</button>
+</section>
+
+<style lang='scss'>
+  .faqs {
+    margin: var(--spacing-mobile-vertical) 0;
+
+    &__list {
+      margin-top: 6.4rem;
+    }
+
+    .accordion {
+      width: 100%;
+      position: relative;
+      &__item {
+        position: relative;
+        &:not(:first-of-type)::before,
+        &:last-of-type::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          opacity: 0.1477;
+          background: var(--royal-curtsy);
+        }
+        &:not(:first-of-type)::before {
+          top: 0;
+          left: 0;
+        }
+        &:last-of-type::after {
+          bottom: -1rem;
+          left: 0;
+        }
+      }
+
+      &__header {
+        padding: 2rem 0 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+
+        h3 {
+          width: 100%;
+        }
+      }
+      // &__icon {
+      //   object-fit: contain;
+      // }
+      .show {
+        button {
+          transform: rotate(180deg);
+          &::after {
+            background: var(--watermelon-sugar);
+          }
+        }
+        + p {
+          transition-property: opacity;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-duration: 300ms;
+        }
+      }
+
+      button {
+        width: 18px;
+        height: 12px;
+        display: block;
+        position: relative;
+
+        &::after {
+          position: absolute;
+          transition-property: transform;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-duration: 300ms;
+          background: var(--flickering-sea);
+          content: '';
+          mask: url('src/assets/icons/icon-arrow.svg');
+          right: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      &__content {
+        margin: 0.6rem 0 var(--spacing-s);
+        text-align: left;
+        // padding-left: 0.75rem;
+        // padding-right: 0.75rem;
+        margin-top: 0.25rem;
+        margin-bottom: 1rem;
+        max-width: 100%;
+      }
+      .hide + p {
+        height: 0;
+        width: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+    }
+  }
+
+  @media (min-width: 48em) {
+    .accordion {
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      &__content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+</style>
+
+<script>
+  const accordionItems = document.querySelectorAll(
+    '.accordion__item > span'
+  ) as NodeListOf<HTMLElement>;
+
+  const buttons = document.querySelectorAll(
+    '.accordion__btn'
+  ) as NodeListOf<HTMLElement>;
+
+  buttons.forEach((button, i) => {
+    button.addEventListener('click', () => {
+      accordionItems.forEach((item, idx) => {
+        if (idx == i) {
+          item.classList.add('show');
+          item.classList.remove('hide');
+        } else {
+          item.classList.add('hide');
+          item.classList.remove('show');
+        }
+      });
+    });
+  });
+</script>
