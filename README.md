@@ -2,7 +2,7 @@
 
 This is a solution to the [Bookmark landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/bookmark-landing-page-5d0b588a9edda32581d29158). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-![Design preview for the Bookmark landing page coding challenge](./design/desktop-preview.jpg)
+![Design preview for the Bookmark landing page coding challenge](/src/assets/design/desktop-preview.jpg)
 ## Table of contents
 
 - [Overview](#overview)
@@ -29,8 +29,14 @@ Users should be able to:
 
 
 ### Screenshot
+#### Mobile
+![](./src/assets/design/mobile-design.jpg)
+![](./src/assets/design/mobile-active-states.jpg)
+![](./src/assets/design/mobile-active-nav.jpg)
 
-<!-- ![](./screenshot.jpg) -->
+#### Desktop
+![](./src/assets/design/desktop-design.jpg)
+![](./src/assets/design/desktop-active-states.jpg)
 
 ### Links
 

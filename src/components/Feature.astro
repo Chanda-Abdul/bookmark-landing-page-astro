@@ -1,11 +1,11 @@
 ---
-import ResponsiveImage from "./ResponsiveImage.astro";
+import Image from "astro/components/Image.astro";
 const { feature, tag, description, cta, illustration } = Astro.props.feature;
 ---
 
 <div class='feature'>
   <div class='feature__img'>
-    <ResponsiveImage mobileImgUrl={illustration} alt={feature}/>
+    <img src={illustration} alt={feature}/>
     <span class='pill-background'></span>
   </div>
 
@@ -16,42 +16,5 @@ const { feature, tag, description, cta, illustration } = Astro.props.feature;
 </div>
 
 <style lang='scss' is:global>
-  .feature {
-    margin: var(--spacing-mobile-vertical) auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
 
-    &__img {
-      position: relative;
-      padding: var(--spacing-mobile-vertical) 0;
-
-      img {
-        z-index: 2;
-        width: 100%;
-      }
-    }
-
-    &:nth-child(even) span {
-      top: 2rem;
-      right: 3.7rem;
-    }
-    &:nth-child(odd) span {
-      top: 2rem;
-      left: 3.7rem;
-    }
-    &__title {
-        margin-bottom: 0;
-    }
-    &__tag {
-        margin-top: var(--spacing-s);
-    }
-    &__description {
-    }
-    button {
-      padding: 1rem var(--spacing-m);
-    }
-  }
 </style>

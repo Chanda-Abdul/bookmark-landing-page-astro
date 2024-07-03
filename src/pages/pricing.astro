@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Signup from '../components/Signup.astro';
+import Signup from '../components/Signup';
 ---
 
 <Layout title='Pricing'>
@@ -74,5 +74,5 @@ Choose the plan that's right for you and start organizing your bookmarks like a 
  </ul>
 <p>We're confident you'll find the perfect plan to supercharge your bookmarking experience.</p>
 </section>
- <Signup />
+ <Signup client:load/>
 </Layout>

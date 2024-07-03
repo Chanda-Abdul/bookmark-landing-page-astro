@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { featureListBasic } from '../consts';
-import Feature from './Feature.astro';
 
 export default function FeaturesPreview() {
   const [currentFeatureIdx, setCurrentFeatureIdx] = useState(0);
@@ -27,6 +26,7 @@ export default function FeaturesPreview() {
                 type='radio'
                 name={feature.feature}
                 id={feature.feature}
+                key={i}
                 value={i}
                 checked={currentFeatureIdx === i ? true : false}
                 onChange={() => handleChange(i)}

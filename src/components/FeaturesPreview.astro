@@ -45,7 +45,26 @@ import FeaturesSelect from './FeaturesSelect';
 
     .features {
       margin-bottom: 6rem;
+      margin: var(--spacing-mobile-vertical) auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 
+    &__img {
+      position: relative;
+      padding: var(--spacing-mobile-vertical) 0;
+
+      img {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+      span{
+        left: 0;
+      }
+    }
       form {
         margin: var(--spacing-mobile-vertical) auto;
 

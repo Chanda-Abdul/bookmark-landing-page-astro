@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Signup from '../components/Signup.astro';
+import Signup from '../components/Signup';
 ---
 
 <Layout title='Contact'>
@@ -40,26 +40,25 @@ import Signup from '../components/Signup.astro';
     <form action=''>
       <legend>Contact Form</legend>
       <fieldset>
-      <label for='name'>Name</label><input type='text' name='name' />
-      
-       <label for='email'>Email</label><input type='text' name='email' />
-     
-       <label for='subject'>Subject</label><input type='text' name='subject' />
-     
-      <label for="message">Message</label><textarea name='message'/>
-         
+        <label for='name'>Name</label><input type='text' name='name' />
+
+        <label for='email'>Email</label><input type='text' name='email' />
+
+        <label for='subject'>Subject</label><input type='text' name='subject' />
+
+        <label for='message'>Message</label><textarea name='message'></textarea>
       </fieldset>
-     </form> 
-        
-        <p>We value your feedback and
-        are committed to providing excellent customer support.We look forward
-        to hearing from you! </p> 
-        
-        <h3>Meet the Bookmark Team</h3> 
-        <!-- [Optional: Add a map showing your
+    </form>
+
+    <p>
+      We value your feedback and are committed to providing excellent customer
+      support.We look forward to hearing from you!
+    </p>
+
+    <h3>Meet the Bookmark Team</h3>
+    <!-- [Optional: Add a map showing your
         company's location or a photo of your team to make the page more
         personal.] -->
-      </section> <Signup /> </Layout>
-     
-  </section></Layout
->
+  </section>
+  <Signup client:load />
+</Layout>

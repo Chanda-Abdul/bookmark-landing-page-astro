@@ -1,27 +1,29 @@
 ---
-import type { ImageMetadata } from 'astro';
+// import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
- 
+
 export interface Props {
   className?: string;
-  mobileImgUrl: ImageMetadata ;  
-  tabletImgUrl?: ImageMetadata ;
-  desktopImgUrl?: ImageMetadata ;
+  mobileImgUrl: string;
+  tabletImgUrl?: string;
+  desktopImgUrl?: string;
   alt: string;
 }
 
-const { className, mobileImgUrl, tabletImgUrl, desktopImgUrl, alt } = Astro.props;
+const { className, mobileImgUrl, tabletImgUrl, desktopImgUrl, alt } =
+  Astro.props;
 
-/* Image Transformation*/ 
-const mobileImg = await getImage({ src: mobileImgUrl.src });
-const tabletImg = await getImage({ src: tabletImgUrl.src });
-const desktopImg = await getImage({ src: desktopImgUrl.src });
+/* Image Transformation*/
+const mobileImg = await getImage({ src: mobileImgUrl });
+const tabletImg = await getImage({ src: tabletImgUrl });
+const desktopImg = await getImage({ src: desktopImgUrl });
 
-/* Optional Attributes: Check if images exist before adding srcset */  const hasMobileImg = mobileImgUrl !== undefined;
+/* Optional Attributes: Check if images exist before adding srcset */ const hasMobileImg =
+  mobileImgUrl !== undefined;
 const hasTabletImg = tabletImgUrl !== undefined;
 const hasDesktopImg = desktopImgUrl !== undefined;
 
-/* Updated Width and Height Values */  
+/* Updated Width and Height Values */
 const mobileWidth = '375';
 const mobileHeight = '375';
 const tabletWidth = '768';
@@ -30,43 +32,45 @@ const desktopWidth = '1440';
 const desktopHeight = '900';
 ---
 
-
 <picture class={className}>
-  {hasMobileImg && (
-    <source 
-      media="(max-width: 767px)" 
-      srcset={mobileImg.src} 
-      width={mobileWidth} 
-      height={mobileHeight} 
-    />
-  )}
-  {hasTabletImg && (
-    <source 
-      media="(min-width: 768px) and (max-width: 1023px)" 
-      srcset={tabletImg.src} 
-      width={tabletWidth}
-      height={tabletHeight} 
-    />
-  )}
-  {hasDesktopImg && (
-    <source 
-      media="(min-width: 1024px)" 
-      srcset={desktopImg.src} 
-      width={desktopWidth} 
-      height={desktopHeight}
-    />
-  )}
-  <img 
-    src={mobileImg.src} 
-    alt={alt} 
-    width={mobileWidth} 
-    height={mobileHeight} 
-    loading="lazy" 
-    decoding="async" 
+  {
+    hasMobileImg && (
+      <source
+        media='(max-width: 767px)'
+        srcset={mobileImg.src}
+        width={mobileWidth}
+        height={mobileHeight}
+      />
+    )
+  }
+  {
+    hasTabletImg && (
+      <source
+        media='(min-width: 768px) and (max-width: 1023px)'
+        srcset={tabletImg.src}
+        width={tabletWidth}
+        height={tabletHeight}
+      />
+    )
+  }
+  {
+    hasDesktopImg && (
+      <source
+        media='(min-width: 1024px)'
+        srcset={desktopImg.src}
+        width={desktopWidth}
+        height={desktopHeight}
+      />
+    )
+  }
+  <img
+    src={mobileImg.src || ''}
+    alt={alt}
+    width={mobileWidth}
+    height={mobileHeight}
+    loading='lazy'
+    decoding='async'
   />
 </picture>
 
-<style>
-
-
-</style>
+<style></style>

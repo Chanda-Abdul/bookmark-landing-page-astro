@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Signup from '../components/Signup.astro';
+import Signup from '../components/Signup';
 import { featureListBasic, featureListPremium } from '../consts';
 import Feature from '../components/Feature.astro';
 ---
@@ -13,7 +13,7 @@ import Feature from '../components/Feature.astro';
 
       <ul>
         {
-          featureListBasic.map((feature, i) => (
+          featureListBasic.map((feature) => (
             <li>
               <Feature {feature} />
             </li>
@@ -44,5 +44,5 @@ import Feature from '../components/Feature.astro';
       </p>
     </div>
   </section>
-  <Signup />
+  <Signup client:load/>
 </Layout>
